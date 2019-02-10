@@ -1,0 +1,153 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Title of document</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-01"><meta name="DC.source" content="publishTemplate.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Title of document</h1><!--introduction--><p>This script shows how to add comments to make it so that you can publish your MATLAB script. Comments put here show up before the table of contents when you publish to html.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Section 1: General information</a></li><li><a href="#2">Section 2: Formatted comments section</a></li><li><a href="#3">Section 3: lists</a></li><li><a href="#4">Section 4a: Plotting</a></li><li><a href="#5">Section 4b: Plotting (cont.)</a></li></ul></div><h2 id="1">Section 1: General information</h2><p>The double-percent (%%) creates a new <i>cell division</i>. Each cell division, when it is published, has a formatted comments section (like this)</p><pre class="codeinput">clear
+<span class="comment">% a code section (like this)</span>
+disp(<span class="string">'and a place to display the output of code (like this)'</span>)
+</pre><pre class="codeoutput">and a place to display the output of code (like this)
+</pre><h2 id="2">Section 2: Formatted comments section</h2><p>Within the formatted comments section, <b>you can make text bold (by using asterisks)</b> or <i>you can italicize text (by using underscores)</i>.</p><p>Links to other files can be inserted (which can then be followed in the html version of the published m-file). Here's a link to the script that produced this document: <a href="../publishTemplate.m">publishTemplate.m</a></p><p>To make a new paragraph, insert a line with just a percent.</p><pre class="codeinput"><span class="comment">% If you just put a blank line (with no %), it will signal the start of the</span>
+<span class="comment">% code section</span>
+</pre><h2 id="3">Section 3: lists</h2><p>Bulleted lists can be created like this:</p><div><ul><li>bullet item 1</li><li>bullet item 2</li><li>bullet item 3</li></ul></div><p>Note the spacing before and after the list - it's necessary.</p><p>Numbered lists can be created like this:</p><div><ol><li>numbered item 1</li><li>numbered item 2</li><li>numbered item 3</li></ol></div><p>Note the spacing before and after the list - it's necessary.</p><h2 id="4">Section 4a: Plotting</h2><p>Each plot needs to go in a separate cell division (or use the figure command).</p><pre class="codeinput">clear
+
+xx = 0 : 0.01 : 2*pi;
+yy = xx + log(xx);
+plot(xx, yy)
+</pre><img vspace="5" hspace="5" src="publishTemplate_01.png" alt=""> <h2 id="5">Section 4b: Plotting (cont.)</h2><pre class="codeinput">yy1 = sin(xx);
+yy2 = 2*cos(xx.^2);
+plot(xx, yy1, <span class="string">'r-'</span>, xx, yy2, <span class="string">'b:'</span>)
+title(<span class="string">'Plot of sin(\theta) and 2cos(\theta^2) over 0 to 2\pi'</span>)
+xlabel(<span class="string">'\theta'</span>)
+ylabel(<span class="string">'y'</span>)
+legend(<span class="string">'sin(\theta)'</span>, <span class="string">'2cos(\theta^2)'</span>)
+</pre><img vspace="5" hspace="5" src="publishTemplate_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Title of document
+% This script shows how to add comments to make it so that you can publish
+% your MATLAB script. Comments put here show up before the table of
+% contents when you publish to html.
+
+%% Section 1: General information
+% The double-percent (%%) creates a new _cell division_. 
+% Each cell division, when it is published, has a formatted comments
+% section (like this)
+
+clear
+% a code section (like this)
+disp('and a place to display the output of code (like this)')
+
+%% Section 2: Formatted comments section
+% Within the formatted comments section, *you can make text bold (by using
+% asterisks)* or _you can italicize text (by using underscores)_.
+%
+% Links to other files can be inserted (which can then be followed in the
+% html version of the published m-file).
+% Here's a link to the script that produced this document: 
+% <../publishTemplate.m publishTemplate.m>
+%
+% To make a new paragraph, insert a line with just a percent.
+
+% If you just put a blank line (with no %), it will signal the start of the
+% code section
+
+%% Section 3: lists
+% Bulleted lists can be created like this:
+%
+% * bullet item 1
+% * bullet item 2
+% * bullet item 3
+%
+% Note the spacing before and after the list - it's necessary.
+%
+% Numbered lists can be created like this:
+%
+% # numbered item 1
+% # numbered item 2
+% # numbered item 3 
+%
+% Note the spacing before and after the list - it's necessary.
+
+%% Section 4a: Plotting
+% Each plot needs to go in a separate cell division (or use the figure 
+% command).
+clear
+
+xx = 0 : 0.01 : 2*pi;
+yy = xx + log(xx);
+plot(xx, yy)
+
+%% Section 4b: Plotting (cont.)
+
+yy1 = sin(xx);
+yy2 = 2*cos(xx.^2);
+plot(xx, yy1, 'r-', xx, yy2, 'b:')
+title('Plot of sin(\theta) and 2cos(\theta^2) over 0 to 2\pi')
+xlabel('\theta')
+ylabel('y')
+legend('sin(\theta)', '2cos(\theta^2)')
+##### SOURCE END #####
+--></body></html>

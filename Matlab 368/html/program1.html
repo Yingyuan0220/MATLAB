@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>CS368 Summer 2018 Programming Assignment 1</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-01"><meta name="DC.source" content="program1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>CS368 Summer 2018 Programming Assignment 1</h1><!--introduction--><div><ul><li>Name: Yuhan Xie</li><li>Due Date: Tuesday, July 3 by 11:59 pm</li></ul></div><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Problem 1: Creating a tip table</a></li><li><a href="#2">Problem 2: Density of freshwater</a></li><li><a href="#3">Problem 3: Distance to horizon</a></li></ul></div><h2 id="1">Problem 1: Creating a tip table</h2><p>Create and display a matrix with four columns:</p><div><ul><li>column 1 contains bill totals from $5 to $100 in increments of $5</li><li>column 2 contains the tip amount if the tip is 15% of the bill</li><li>column 3 contains the tip amount if the tip is 18% of the bill</li><li>column 4 contains the tip amount if the tip is 20% of the bill</li></ul></div><pre class="codeinput">clear
+format <span class="string">bank</span>  <span class="comment">% this will format money values nicely</span>
+
+tips = [5:5:100]';  <span class="comment">% create the vector of each amount of money</span>
+tips = tips(:,[1 1 1 1]);
+tips = tips .* [1 0.15 0.18 0.2];   <span class="comment">% calculate the amount of tips in each proportion</span>
+
+disp(tips)
+format <span class="string">short</span> <span class="comment">% change formatting back to default setting</span>
+</pre><pre class="codeoutput">          5.00          0.75          0.90          1.00
+         10.00          1.50          1.80          2.00
+         15.00          2.25          2.70          3.00
+         20.00          3.00          3.60          4.00
+         25.00          3.75          4.50          5.00
+         30.00          4.50          5.40          6.00
+         35.00          5.25          6.30          7.00
+         40.00          6.00          7.20          8.00
+         45.00          6.75          8.10          9.00
+         50.00          7.50          9.00         10.00
+         55.00          8.25          9.90         11.00
+         60.00          9.00         10.80         12.00
+         65.00          9.75         11.70         13.00
+         70.00         10.50         12.60         14.00
+         75.00         11.25         13.50         15.00
+         80.00         12.00         14.40         16.00
+         85.00         12.75         15.30         17.00
+         90.00         13.50         16.20         18.00
+         95.00         14.25         17.10         19.00
+        100.00         15.00         18.00         20.00
+
+</pre><h2 id="2">Problem 2: Density of freshwater</h2><p>Shows water density under each temperature</p><pre class="codeinput">clear
+TF = [40 68 100]';
+TC = 5/9*(TF - 32);
+d = 5.5289 * 10^(-8)*TC.^3 - 8.5016*10^(-6)*TC.^2 + 6.5622*10^(-5)*TC + 0.99987;
+
+disp(<span class="string">"Freshwater density is "</span>+num2str(d(1))+<span class="string">" at "</span>+num2str(TF(1))+<span class="string">" F"</span>);
+disp(<span class="string">"Freshwater density is "</span>+num2str(d(2))+<span class="string">" at "</span>+num2str(TF(2))+<span class="string">" F"</span>);
+disp(<span class="string">"Freshwater density is "</span>+num2str(d(3))+<span class="string">" at "</span>+num2str(TF(3))+<span class="string">" F"</span>);
+</pre><pre class="codeoutput">Freshwater density is 1 at 40 F
+Freshwater density is 0.99822 at 68 F
+Freshwater density is 0.9932 at 100 F
+</pre><h2 id="3">Problem 3: Distance to horizon</h2><pre class="codeinput">clear
+h = 0:1:10000;  <span class="comment">% set increment to 1</span>
+dmars = sqrt(2*4217*5280.*h + h.^2)/5280;  <span class="comment">% calculate the distance on Mars</span>
+dearth = sqrt(2*7926*5280.*h + h.^2)/5280;  <span class="comment">% calculate the distance on Earth</span>
+
+figure
+plot(h, dmars,<span class="string">'r'</span>, h, dearth, <span class="string">'b--'</span>)
+title(<span class="string">"Distance to horizon on Mars and Earth"</span>)
+xlabel(<span class="string">"height of the mountain (feet)"</span>)
+ylabel(<span class="string">"distance to horizon (miles)"</span>)
+legend(<span class="string">"Mars"</span>, <span class="string">"Earth"</span>)
+</pre><img vspace="5" hspace="5" src="program1_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% CS368 Summer 2018 Programming Assignment 1
+% * Name: Yuhan Xie
+% * Due Date: Tuesday, July 3 by 11:59 pm
+
+
+%% Problem 1: Creating a tip table
+% Create and display a matrix with four columns:
+%
+% * column 1 contains bill totals from $5 to $100 in increments of $5
+% * column 2 contains the tip amount if the tip is 15% of the bill
+% * column 3 contains the tip amount if the tip is 18% of the bill
+% * column 4 contains the tip amount if the tip is 20% of the bill
+clear
+format bank  % this will format money values nicely
+
+tips = [5:5:100]';  % create the vector of each amount of money
+tips = tips(:,[1 1 1 1]); 
+tips = tips .* [1 0.15 0.18 0.2];   % calculate the amount of tips in each proportion
+
+disp(tips)
+format short % change formatting back to default setting
+
+%% Problem 2: Density of freshwater
+% Shows water density under each temperature
+
+clear
+TF = [40 68 100]';
+TC = 5/9*(TF - 32);
+d = 5.5289 * 10^(-8)*TC.^3 - 8.5016*10^(-6)*TC.^2 + 6.5622*10^(-5)*TC + 0.99987;
+
+disp("Freshwater density is "+num2str(d(1))+" at "+num2str(TF(1))+" F");
+disp("Freshwater density is "+num2str(d(2))+" at "+num2str(TF(2))+" F");
+disp("Freshwater density is "+num2str(d(3))+" at "+num2str(TF(3))+" F");
+
+%% Problem 3: Distance to horizon
+
+
+clear
+h = 0:1:10000;  % set increment to 1
+dmars = sqrt(2*4217*5280.*h + h.^2)/5280;  % calculate the distance on Mars
+dearth = sqrt(2*7926*5280.*h + h.^2)/5280;  % calculate the distance on Earth
+
+figure
+plot(h, dmars,'r', h, dearth, 'bREPLACE_WITH_DASH_DASH')
+title("Distance to horizon on Mars and Earth")
+xlabel("height of the mountain (feet)")
+ylabel("distance to horizon (miles)")
+legend("Mars", "Earth")
+##### SOURCE END #####
+--></body></html>

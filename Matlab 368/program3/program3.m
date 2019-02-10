@@ -1,0 +1,1 @@
+heatPlate(0, 0)

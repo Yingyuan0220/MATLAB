@@ -1,0 +1,3 @@
+function result = calculatePercent(exams, homeworks, quizzes)
+result = sum(exams, 2) ./ size(exams, 2) + sum(homeworks, 2) ./ size(homeworks, 2) ...
++ sum(quizzes, 2) ./ size(quizzes, 2);
